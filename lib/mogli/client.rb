@@ -86,7 +86,7 @@ module Mogli
 
     def self.response_is_error?(post_data)
        post_data.kind_of?(Hash) and
-       !post_data["error"].empty?
+       !post_data["error"].nil?
     end
 
     def self.create_from_session_key(session_key, client_id, secret)
