@@ -86,7 +86,6 @@ module Mogli
 
     def self.response_is_error?(post_data)
       puts "#####",post_data
-      puts "#####",poost_dara.inspect
        post_data.kind_of?(Hash) and
        !post_data["error"].nil?
     end
