@@ -53,14 +53,15 @@ module Mogli
       if (response_is_error?(post_data))
         raise_client_exception(post_data)
       end
-      parts = post_data.split("&")
-      hash = {}
-      parts.each do |p| (k,v) = p.split("=")
-        hash[k]=CGI.unescape(v)
-      end
+      #parts = post_data.split("&")
+      #hash = {}
+      hash = post_data
+      #parts.each do |p| (k,v) = p.split("=")
+      #  hash[k]=CGI.unescape(v)
+      #end
 
-      if hash["expires"]
-        expires = Time.now.to_i + hash["expires"].to_i
+      if hash["expires_in"]
+        expires = Time.now.to_i + hash["expires_in"].to_i
       else
         expires = nil
       end
